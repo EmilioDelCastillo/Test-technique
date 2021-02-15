@@ -17,7 +17,9 @@ class ArticleCell: UITableViewCell {
     
     @IBOutlet weak var articleDate: UILabel!
     
+    
     override func prepareForReuse() {
+        // When dequeuing, the image is kept.
         articleImage.image = nil
     }
     
