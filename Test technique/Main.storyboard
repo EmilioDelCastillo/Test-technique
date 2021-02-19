@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fab-bz-AXD">
-                                <rect key="frame" x="0.0" y="0.0" width="124" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grh-Ku-L5o">
                                 <rect key="frame" x="20" y="44" width="374" height="764"/>
@@ -128,9 +128,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ojb-zX-dE7">
+                                        <rect key="frame" x="177" y="130.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Lzz-fG-89K"/>
+                                            <constraint firstAttribute="height" constant="20" id="Uo7-xR-LMt"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ojb-zX-dE7" firstAttribute="centerY" secondItem="3rf-ch-PgF" secondAttribute="centerY" id="0fT-qU-w9h"/>
                                     <constraint firstItem="3rf-ch-PgF" firstAttribute="leading" secondItem="5cQ-C8-nfA" secondAttribute="leading" id="2nd-KV-bPq"/>
+                                    <constraint firstItem="ojb-zX-dE7" firstAttribute="centerX" secondItem="3rf-ch-PgF" secondAttribute="centerX" id="65X-Pa-WfG"/>
                                     <constraint firstAttribute="bottom" secondItem="5cQ-C8-nfA" secondAttribute="bottom" id="7Xv-JO-AC6"/>
                                     <constraint firstItem="3rf-ch-PgF" firstAttribute="width" secondItem="Grh-Ku-L5o" secondAttribute="width" id="QZI-N8-n86"/>
                                     <constraint firstItem="3rf-ch-PgF" firstAttribute="top" secondItem="Grh-Ku-L5o" secondAttribute="top" id="TS2-Q6-wCa"/>
@@ -176,6 +185,7 @@
                         <outlet property="articleImage" destination="3rf-ch-PgF" id="W56-Ry-Yod"/>
                         <outlet property="articleScrollView" destination="Grh-Ku-L5o" id="vRE-pA-xKR"/>
                         <outlet property="articleTitle" destination="7Vn-3Q-75o" id="ug5-7y-c3H"/>
+                        <outlet property="spinner" destination="ojb-zX-dE7" id="NnL-jS-v0n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gn-fh-rgr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

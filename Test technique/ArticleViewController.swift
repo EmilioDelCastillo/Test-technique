@@ -14,8 +14,10 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var articleDate: UILabel!
     @IBOutlet weak var articleContents: UITextView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var imageForOutlet: UIImage!
+    var imageURLForOutlet: URL!
     var titleForOutlet: String!
     var dateForOutlet: String!
     var contentsForOutlet: String!
@@ -37,7 +39,22 @@ class ArticleViewController: UIViewController {
         }
         
         articleTitle.text = titleForOutlet
-        articleImage.image = imageForOutlet
+        
+        // Load the article image if it hasn't been loaded yet
+        if let image = imageForOutlet {
+            articleImage.image = image
+        } else {
+            DispatchQueue.global(qos: .userInteractive).async {
+                
+                let image = try? UIImage(data: Data(contentsOf: self.imageURLForOutlet))
+                DispatchQueue.main.async {
+                    self.articleImage.image = image
+                    self.articleImage.contentMode = .scaleAspectFill
+                    self.spinner.stopAnimating()
+                }
+            }
+        }
+        
         articleImage.contentMode = .scaleAspectFill
         articleDate.text = dateForOutlet
 

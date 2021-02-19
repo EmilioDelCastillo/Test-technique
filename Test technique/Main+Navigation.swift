@@ -19,7 +19,14 @@ extension MainTableViewController {
                 let article = articles[index!.row]
                 
                 articleVC.contentsForOutlet = article.description
-                articleVC.imageForOutlet = cell.articleImage.image
+                
+                // Check if the image has finished loading
+                if let image = cell.articleImage.image {
+                    articleVC.imageForOutlet = image
+                } else {
+                    articleVC.imageURLForOutlet = URL(string: article.urlImage)!
+                }
+                
                 articleVC.dateForOutlet = cell.articleDate.text
                 articleVC.titleForOutlet = cell.articleTitle.text
             }
