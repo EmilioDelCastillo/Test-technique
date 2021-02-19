@@ -43,6 +43,7 @@ class ArticleViewController: UIViewController {
         // Load the article image if it hasn't been loaded yet
         if let image = imageForOutlet {
             articleImage.image = image
+            self.spinner.stopAnimating()
         } else {
             DispatchQueue.global(qos: .userInteractive).async {
                 
